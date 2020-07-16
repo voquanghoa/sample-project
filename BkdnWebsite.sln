@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bkdn.Website", "Bkdn.Websit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModels", "DataModels\DataModels.csproj", "{738E5742-1C59-4C7E-BC4B-FC9943C4A78D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{DFF77E56-9032-48BB-A41E-C43EEAA6FD30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{738E5742-1C59-4C7E-BC4B-FC9943C4A78D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{738E5742-1C59-4C7E-BC4B-FC9943C4A78D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{738E5742-1C59-4C7E-BC4B-FC9943C4A78D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFF77E56-9032-48BB-A41E-C43EEAA6FD30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFF77E56-9032-48BB-A41E-C43EEAA6FD30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFF77E56-9032-48BB-A41E-C43EEAA6FD30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFF77E56-9032-48BB-A41E-C43EEAA6FD30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

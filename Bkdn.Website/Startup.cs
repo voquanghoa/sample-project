@@ -1,7 +1,10 @@
+using BusinessLogic;
+using DataModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -21,11 +24,17 @@ namespace Bkdn.Website
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            // In production, the Angular files will be served from this directory
+            services.RegisterBusinessDI();
+            
+            services.AddDbContext<BkdnContext>(ConfigDb, ServiceLifetime.Transient, ServiceLifetime.Transient);
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        private void ConfigDb(DbContextOptionsBuilder options)
+        {
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+        }
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

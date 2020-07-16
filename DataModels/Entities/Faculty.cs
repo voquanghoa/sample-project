@@ -1,6 +1,6 @@
 using DataModels.Base;
 
-namespace DataModels.Entity
+namespace DataModels.Entities
 {
     public class Faculty: IdBase
     {

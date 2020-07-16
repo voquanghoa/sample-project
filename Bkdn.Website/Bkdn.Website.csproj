@@ -33,7 +33,12 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
       <ProjectReference Include="..\DataModels\DataModels.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Controllers" />
     </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

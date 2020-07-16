@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using DataModels.Base;
 
-namespace DataModels.Entity
+namespace DataModels.Entities
 {
     public class Attachment: IdBase
     {

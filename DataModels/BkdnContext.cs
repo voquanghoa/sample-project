@@ -1,4 +1,4 @@
-using DataModels.Entity;
+using DataModels.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataModels
@@ -19,5 +19,7 @@ namespace DataModels
         public DbSet<Faculty> Faculties { get; set; }
 
         public DbSet<TopicMember> TopicMembers { get; set; }
+        
+        public DbSet<User> Users { get; set; }
     }
 }

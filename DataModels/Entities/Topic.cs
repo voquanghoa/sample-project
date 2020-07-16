@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using DataModels.Base;
 using DataModels.Enums;
 
-namespace DataModels.Entity
+namespace DataModels.Entities
 {
     public class Topic: IdBase
     {
