@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Bkdn.Website.Handlers;
 using BusinessLogic.Contract;
 using DataModels.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -24,10 +25,10 @@ namespace Bkdn.Website.Controllers
         [Route("{id}")]
         public async Task<Faculty> Get(int id) => await business.GetById<Faculty>(id);
         
-        [HttpPost]
+        [HttpPost][ValidateModel]
         public async Task<Faculty> Create([FromBody] Faculty faculty) => await business.Create<Faculty>(faculty);
         
-        [HttpPut]
+        [HttpPut][ValidateModel]
         public async Task Update([FromBody] Faculty faculty) => await business.Update(faculty);
     }
 
