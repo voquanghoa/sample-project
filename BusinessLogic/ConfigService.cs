@@ -1,7 +1,6 @@
 using BusinessLogic.Business;
 using BusinessLogic.Contract;
-using DataModels;
-using Microsoft.EntityFrameworkCore;
+using DataModels.Entities;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BusinessLogic
@@ -11,6 +10,7 @@ namespace BusinessLogic
         public static void RegisterBusinessDI(this IServiceCollection services)
         {
             services.AddTransient<IAuthBusiness, AuthBusiness>();
+            services.AddTransient<IGenericBusiness<Faculty>, FacultyBusiness>();
         }
     }
 }

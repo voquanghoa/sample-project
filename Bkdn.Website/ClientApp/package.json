@@ -1,11 +1,11 @@
 {
-  "name": "bkdn.website",
+  "name": "app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:ssr": "ng run Bkdn.Website:server:dev",
+    "build:ssr": "ng run app:server:dev",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

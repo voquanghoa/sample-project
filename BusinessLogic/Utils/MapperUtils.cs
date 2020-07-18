@@ -25,6 +25,11 @@ namespace BusinessLogic.Utils
             {
                 throw new Exception("Nullpoint exception occurs!");
             }
+
+            if (t is T objT)
+            {
+                return objT;
+            }
             
             return mapper.Map<T>(t);
         }
