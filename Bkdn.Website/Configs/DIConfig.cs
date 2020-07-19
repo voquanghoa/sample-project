@@ -1,4 +1,5 @@
 using Bkdn.Website.Handlers;
+using Bkdn.Website.Providers;
 using BusinessLogic;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -11,6 +12,7 @@ namespace Bkdn.Website.Configs
             services.RegisterBusinessDI();
             
             services.AddScoped<ValidateModelAttribute>();
+            services.AddScoped<ITokenGenerator, TokenGenerator>();
         }
     }
 }

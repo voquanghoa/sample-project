@@ -1,7 +1,4 @@
-using System;
-using System.IO;
-using System.Reflection;
-using BusinessLogic;
+using System.Text;
 using DataModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,6 +21,8 @@ namespace Bkdn.Website.Configs
 
         public void ConfigureServices(IServiceCollection services)
         {
+            
+            
             services.AddControllersWithViews();
             
             services.RegisterDI();
@@ -33,6 +32,7 @@ namespace Bkdn.Website.Configs
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
 
             services.AddSwaggerGen(SwaggerConfig.ConfigSwagger);
+            services.ConfigSecurity(Configuration);
         }
 
         private void ConfigDb(DbContextOptionsBuilder options)
