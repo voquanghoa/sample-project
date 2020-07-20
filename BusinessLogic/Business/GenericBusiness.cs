@@ -15,7 +15,8 @@ namespace BusinessLogic.Business
     {
         protected readonly DbSet<T> Entries;
 
-        protected GenericBusiness(BkdnContext context) : base(context)
+        // ReSharper disable once MemberCanBeProtected.Global
+        public GenericBusiness(BkdnContext context) : base(context)
         {
             Entries = context.Set<T>();
         }

@@ -1,6 +1,9 @@
 using System;
 using AutoMapper;
 using BusinessLogic.Models;
+using BusinessLogic.Models.Authentication;
+using BusinessLogic.Models.Employee;
+using BusinessLogic.Models.User;
 using DataModels.Entities;
 using Void = BusinessLogic.Models.Void;
 
@@ -17,6 +20,11 @@ namespace BusinessLogic.Utils
         {
             x.CreateMaps<UserLogin, User>();
             x.CreateMaps<UserCreate, User>();
+            
+            x.CreateMap<EmployeeCreate, Employee>();
+            x.CreateMap<EmployeeUpdate, Employee>();
+            x.CreateMap<Employee, EmployeeResponse>();
+            
             x.CreateMaps<Void, User>();
         });
 

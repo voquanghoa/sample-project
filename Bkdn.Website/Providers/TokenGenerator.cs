@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Bkdn.Website.Configs;
 using BusinessLogic.Contract;
 using BusinessLogic.Models;
+using BusinessLogic.Models.Authentication;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 

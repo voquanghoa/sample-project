@@ -1,4 +1,4 @@
-namespace BusinessLogic.Models
+namespace BusinessLogic.Models.Faculty
 {
     public class FacultyCreate
     {

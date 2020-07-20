@@ -1,9 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Bkdn.Website.Handlers;
 using BusinessLogic.Contract;
 using BusinessLogic.Models;
+using BusinessLogic.Models.Faculty;
 using DataModels.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

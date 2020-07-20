@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using BusinessLogic.Contract;
 using BusinessLogic.Models;
+using BusinessLogic.Models.Authentication;
 using BusinessLogic.Utils;
 using DataModels;
 using DataModels.Entities;

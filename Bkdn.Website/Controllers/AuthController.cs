@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Bkdn.Website.Models;
 using Bkdn.Website.Providers;
 using BusinessLogic.Models;
+using BusinessLogic.Models.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bkdn.Website.Controllers

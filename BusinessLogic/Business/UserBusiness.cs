@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using BusinessLogic.Contract;
 using BusinessLogic.Models;
+using BusinessLogic.Models.User;
 using BusinessLogic.Utils;
 using DataModels;
 using DataModels.Entities;

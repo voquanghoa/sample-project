@@ -18,6 +18,8 @@ namespace Bkdn.Website.Configs
             services.AddScoped<ValidateModelAttribute>();
             services.AddScoped<ITokenGenerator, TokenGenerator>();
             services.AddScoped<IUserBusiness, UserBusiness>();
+            
+            services.AddScoped(typeof(IGenericBusiness<>), typeof(GenericBusiness<>));
         }
     }
 }

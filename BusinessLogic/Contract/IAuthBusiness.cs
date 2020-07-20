@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using BusinessLogic.Models;
+using BusinessLogic.Models.Authentication;
 using DataModels.Entities;
 
 namespace BusinessLogic.Contract
