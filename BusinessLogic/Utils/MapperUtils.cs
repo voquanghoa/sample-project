@@ -2,6 +2,7 @@ using System;
 using AutoMapper;
 using BusinessLogic.Models;
 using DataModels.Entities;
+using Void = BusinessLogic.Models.Void;
 
 namespace BusinessLogic.Utils
 {
@@ -14,7 +15,9 @@ namespace BusinessLogic.Utils
         
         private static readonly MapperConfiguration mapperConfiguration =  new MapperConfiguration(x =>
         {
-            x.CreateMap<UserLogin, User>();
+            x.CreateMaps<UserLogin, User>();
+            x.CreateMaps<UserCreate, User>();
+            x.CreateMaps<Void, User>();
         });
 
         private static readonly IMapper mapper = mapperConfiguration.CreateMapper();

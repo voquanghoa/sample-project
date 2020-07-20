@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using BusinessLogic.Contract;
 using BusinessLogic.Utils;
@@ -12,8 +14,8 @@ namespace BusinessLogic.Business
     public class GenericBusiness<T>: BaseBusiness, IGenericBusiness<T> where T : IdBase
     {
         protected readonly DbSet<T> Entries;
-        
-        public GenericBusiness(BkdnContext context) : base(context)
+
+        protected GenericBusiness(BkdnContext context) : base(context)
         {
             Entries = context.Set<T>();
         }
@@ -38,7 +40,7 @@ namespace BusinessLogic.Business
             await Context.SaveChangesAsync();
         }
         
-        public virtual async Task<TO> Create<TO>(IdBase o)
+        public virtual async Task<TO> Create<TO>(object o)
         {
             var entry = o.ConvertTo<T>();
             Context.Entry(entry).State = EntityState.Added;
@@ -57,6 +59,11 @@ namespace BusinessLogic.Business
             entry = entry ?? throw new BadRequestException("Record not found");
             Context.Entry(entry).State = EntityState.Deleted;
             await Context.SaveChangesAsync();
+        }
+
+        public async Task<bool> Exist(Expression<Func<T, bool>> predicate)
+        {
+            return await Entries.AnyAsync(predicate);
         }
     }
 }

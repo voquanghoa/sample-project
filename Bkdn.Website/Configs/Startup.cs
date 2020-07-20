@@ -1,4 +1,5 @@
 using System.Text;
+using Bkdn.Website.Handlers;
 using DataModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -21,9 +22,8 @@ namespace Bkdn.Website.Configs
 
         public void ConfigureServices(IServiceCollection services)
         {
-            
-            
             services.AddControllersWithViews();
+            services.AddControllers();
             
             services.RegisterDI();
             services.AddMvc(FilterHelper.Register);
@@ -53,7 +53,7 @@ namespace Bkdn.Website.Configs
             }
 
             app.ConfigSwagger();
-            
+            app.UseMiddleware<TokenProviderMiddleware>();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             if (!env.IsDevelopment())
@@ -62,6 +62,7 @@ namespace Bkdn.Website.Configs
             }
 
             app.UseRouting();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

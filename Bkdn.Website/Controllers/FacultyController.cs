@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Bkdn.Website.Handlers;
 using BusinessLogic.Contract;
+using BusinessLogic.Models;
 using DataModels.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bkdn.Website.Controllers
@@ -25,10 +27,10 @@ namespace Bkdn.Website.Controllers
         [Route("{id}")]
         public async Task<Faculty> Get(int id) => await business.GetById<Faculty>(id);
         
-        [HttpPost][ValidateModel]
-        public async Task<Faculty> Create([FromBody] Faculty faculty) => await business.Create<Faculty>(faculty);
+        [HttpPost][ValidateModel][Authorize]
+        public async Task<Faculty> Create([FromBody] FacultyCreate faculty) => await business.Create<Faculty>(faculty);
         
-        [HttpPut][ValidateModel]
+        [HttpPut][ValidateModel][Authorize]
         public async Task Update([FromBody] Faculty faculty) => await business.Update(faculty);
     }
 
