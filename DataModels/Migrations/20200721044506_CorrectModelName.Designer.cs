@@ -4,14 +4,16 @@ using DataModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataModels.Migrations
 {
     [DbContext(typeof(BkdnContext))]
-    partial class BkdnContextModelSnapshot : ModelSnapshot
+    [Migration("20200721044506_CorrectModelName")]
+    partial class CorrectModelName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,7 +60,12 @@ namespace DataModels.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ResearchId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ResearchId");
 
                     b.ToTable("Catalogs");
                 });
@@ -111,9 +118,6 @@ namespace DataModels.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CatalogId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
@@ -139,8 +143,6 @@ namespace DataModels.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CatalogId");
 
                     b.HasIndex("MentorId");
 
@@ -210,6 +212,13 @@ namespace DataModels.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("DataModels.Entities.Catalog", b =>
+                {
+                    b.HasOne("DataModels.Entities.Research", null)
+                        .WithMany("Catalogs")
+                        .HasForeignKey("ResearchId");
+                });
+
             modelBuilder.Entity("DataModels.Entities.Employee", b =>
                 {
                     b.HasOne("DataModels.Entities.Faculty", "Faculty")
@@ -219,10 +228,6 @@ namespace DataModels.Migrations
 
             modelBuilder.Entity("DataModels.Entities.Research", b =>
                 {
-                    b.HasOne("DataModels.Entities.Catalog", "Catalog")
-                        .WithMany()
-                        .HasForeignKey("CatalogId");
-
                     b.HasOne("DataModels.Entities.Employee", "Mentor")
                         .WithMany()
                         .HasForeignKey("MentorId");

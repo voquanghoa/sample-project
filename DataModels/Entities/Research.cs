@@ -5,7 +5,7 @@ using DataModels.Enums;
 
 namespace DataModels.Entities
 {
-    public class Topic: IdBase
+    public class Research: IdBase
     {
         public string Name { get; set; }
 
@@ -16,11 +16,11 @@ namespace DataModels.Entities
         [ForeignKey(nameof(MentorId))]
         public Employee Mentor { get; set; }
 
-        public TopicLevel Level { get; set; }
+        public ResearchLevel Level { get; set; }
 
-        public List<TopicMember> Members { get; set; } = new List<TopicMember>();
+        public virtual List<ResearchMember> Members { get; set; } = new List<ResearchMember>();
 
-        public List<Catalog> Catalogs { get; set; }
+        public virtual Catalog Catalog { get; set; }
 
         public int EndYear { get; set; }
 
@@ -28,11 +28,11 @@ namespace DataModels.Entities
 
         public decimal Cost { get; set; }
 
-        public List<Attachment> Attachments { get; set; } = new List<Attachment>();
+        public virtual List<Attachment> Attachments { get; set; } = new List<Attachment>();
         
         public int? ValidatorId { get; set; }
         
         [ForeignKey(nameof(ValidatorId))]
-        public Employee Validator { get; set; }
+        public virtual Employee Validator { get; set; }
     }
 }

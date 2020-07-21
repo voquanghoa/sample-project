@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Bkdn.Website.Handlers;
 using BusinessLogic.Contract;
 using BusinessLogic.Models.Employee;
-using BusinessLogic.Models.Faculty;
 using DataModels.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -23,14 +22,13 @@ namespace Bkdn.Website.Controllers
         [HttpGet]
         public async Task<List<EmployeeResponse>> GetAll() => await business.GetAll<EmployeeResponse>();
         
-        [HttpGet]
-        [Route("{id}")]
+        [HttpGet][Route("{id}")]
         public async Task<EmployeeResponse> Get(int id) => await business.GetById<EmployeeResponse>(id);
         
         [HttpPost][ValidateModel][Authorize]
-        public async Task<EmployeeResponse> Create([FromBody] EmployeeCreate faculty) => await business.Create<EmployeeResponse>(faculty);
+        public async Task<EmployeeResponse> Create([FromBody] EmployeeCreate employee) => await business.Create<EmployeeResponse>(employee);
         
         [HttpPut][ValidateModel][Authorize]
-        public async Task Update([FromBody] EmployeeUpdate faculty) => await business.Update(faculty);
+        public async Task Update([FromBody] EmployeeUpdate employee) => await business.Update(employee);
     }
 }

@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Bkdn.Website.Handlers;
 using BusinessLogic.Contract;
-using BusinessLogic.Models;
 using BusinessLogic.Models.Faculty;
 using DataModels.Entities;
 using Microsoft.AspNetCore.Authorization;
@@ -23,8 +22,7 @@ namespace Bkdn.Website.Controllers
         [HttpGet]
         public async Task<List<Faculty>> GetAll() => await business.GetAll<Faculty>();
         
-        [HttpGet]
-        [Route("{id}")]
+        [HttpGet][Route("{id}")]
         public async Task<Faculty> Get(int id) => await business.GetById<Faculty>(id);
         
         [HttpPost][ValidateModel][Authorize]

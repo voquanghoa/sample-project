@@ -1,7 +1,7 @@
 using System;
 using AutoMapper;
-using BusinessLogic.Models;
 using BusinessLogic.Models.Authentication;
+using BusinessLogic.Models.Catalog;
 using BusinessLogic.Models.Employee;
 using BusinessLogic.Models.User;
 using DataModels.Entities;
@@ -24,6 +24,10 @@ namespace BusinessLogic.Utils
             x.CreateMap<EmployeeCreate, Employee>();
             x.CreateMap<EmployeeUpdate, Employee>();
             x.CreateMap<Employee, EmployeeResponse>();
+            
+            x.CreateMap<CatalogCreate, Catalog>();
+            x.CreateMap<CatalogUpdate, Catalog>();
+            x.CreateMap<Catalog, CatalogResponse>();
             
             x.CreateMaps<Void, User>();
         });

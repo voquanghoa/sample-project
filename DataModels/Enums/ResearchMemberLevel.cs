@@ -1,6 +1,6 @@
 namespace DataModels.Enums
 {
-    public enum TopicMemberLevel
+    public enum ResearchMemberLevel
     {
         Main,
         Sub

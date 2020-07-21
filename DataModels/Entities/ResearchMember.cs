@@ -4,18 +4,18 @@ using DataModels.Enums;
 
 namespace DataModels.Entities
 {
-    public class TopicMember: IdBase
+    public class ResearchMember: IdBase
     {
         public int EmployeeId { get; set; }
 
         [ForeignKey(nameof(EmployeeId))]
         public Employee Employee { get; set; }
 
-        public int TopicId { get; set; }
+        public int ResearchId { get; set; }
         
-        [ForeignKey(nameof(TopicId))]
-        public Topic Topic { get; set; }
+        [ForeignKey(nameof(ResearchId))]
+        public Research Research { get; set; }
 
-        public TopicMemberLevel Level { get; set; }
+        public ResearchMemberLevel Level { get; set; }
     }
 }

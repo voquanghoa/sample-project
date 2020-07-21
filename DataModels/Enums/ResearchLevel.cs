@@ -1,6 +1,6 @@
 namespace DataModels.Enums
 {
-    public enum TopicLevel
+    public enum ResearchLevel
     {
         Dut,
         Udn,

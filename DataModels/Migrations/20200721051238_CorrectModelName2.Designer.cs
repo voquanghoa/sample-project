@@ -4,14 +4,16 @@ using DataModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataModels.Migrations
 {
     [DbContext(typeof(BkdnContext))]
-    partial class BkdnContextModelSnapshot : ModelSnapshot
+    [Migration("20200721051238_CorrectModelName2")]
+    partial class CorrectModelName2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -111,9 +113,6 @@ namespace DataModels.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CatalogId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
@@ -139,8 +138,6 @@ namespace DataModels.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CatalogId");
 
                     b.HasIndex("MentorId");
 
@@ -201,6 +198,21 @@ namespace DataModels.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("DataModels.ResearchCategory", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ResearchId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CategoryId", "ResearchId");
+
+                    b.HasIndex("ResearchId");
+
+                    b.ToTable("ResearchCategory");
+                });
+
             modelBuilder.Entity("DataModels.Entities.Attachment", b =>
                 {
                     b.HasOne("DataModels.Entities.Research", "Research")
@@ -219,10 +231,6 @@ namespace DataModels.Migrations
 
             modelBuilder.Entity("DataModels.Entities.Research", b =>
                 {
-                    b.HasOne("DataModels.Entities.Catalog", "Catalog")
-                        .WithMany()
-                        .HasForeignKey("CatalogId");
-
                     b.HasOne("DataModels.Entities.Employee", "Mentor")
                         .WithMany()
                         .HasForeignKey("MentorId");
@@ -242,6 +250,21 @@ namespace DataModels.Migrations
 
                     b.HasOne("DataModels.Entities.Research", "Research")
                         .WithMany("Members")
+                        .HasForeignKey("ResearchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("DataModels.ResearchCategory", b =>
+                {
+                    b.HasOne("DataModels.Entities.Catalog", "Catalog")
+                        .WithMany("ResearchCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DataModels.Entities.Research", "Research")
+                        .WithMany("ResearchCategories")
                         .HasForeignKey("ResearchId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
