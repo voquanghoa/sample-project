@@ -11,6 +11,7 @@ namespace DataModels.Entities
         public DateTime UploadDateTime { get; set; }
 
         public Guid AccessCode { get; set; }
+        
         public int ResearchId { get; set; }
         
         [ForeignKey(nameof(ResearchId))]

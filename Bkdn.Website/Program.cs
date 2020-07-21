@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Bkdn.Website.Configs;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace Bkdn.Website
 {
@@ -19,7 +13,9 @@ namespace Bkdn.Website
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .UseDefaultServiceProvider(opt => {})
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+                .UseDefaultServiceProvider(_ => {})
+                .ConfigureWebHostDefaults(UseStartup);
+
+        private static void UseStartup(IWebHostBuilder webBuilder) => webBuilder.UseStartup<Startup>();
     }
 }

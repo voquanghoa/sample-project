@@ -1,6 +1,5 @@
 using System.Threading.Tasks;
 using BusinessLogic.Contract;
-using BusinessLogic.Models;
 using BusinessLogic.Models.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
