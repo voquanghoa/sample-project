@@ -2,6 +2,7 @@ using Bkdn.Website.Handlers;
 using DataModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -75,7 +76,7 @@ namespace Bkdn.Website.Configs
 
                 if (env.IsDevelopment())
                 {
-                    //spa.UseAngularCliServer("start");
+                    spa.UseAngularCliServer("start");
                 }
             });
         }
