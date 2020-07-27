@@ -1,0 +1,46 @@
+.login-body{
+  margin: 0 auto;
+  width: fit-content;
+}
+.login-body .login-card .login-content h1 {
+  color: #1b1c1e;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.login-content{
+  padding: 20px 30px;
+}
+
+.login-page{
+  background: url(assets/imgs/loginbg.jpg) no-repeat center;
+  background-size: cover;
+  height: 100%;
+}
+.login-card{
+  align-self: center;
+  width: 25%;
+  min-width: 420px;
+  opacity: 0.9;
+  border-radius: 2px;
+  background: radial-gradient(circle at 50% 3%, #f3f4f9, #d7dbe8);
+}
+
+@media screen and (max-width: 576px) {
+  .login-body {
+    background-position: right;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+  }
+  .login-body .login-card {
+    width: 100%;
+    min-width: 100%;
+    margin-left: 0;
+    height: 100%;
+  }
+}
+

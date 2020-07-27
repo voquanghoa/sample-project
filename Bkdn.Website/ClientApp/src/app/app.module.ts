@@ -10,6 +10,9 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
+import {ButtonModule} from 'primeng/button';
+import {InputTextModule} from 'primeng/inputtext';
+
 
 @NgModule({
   declarations: [
@@ -18,12 +21,14 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     CounterComponent,
     AdminComponent,
-    LoginComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ButtonModule,
+    InputTextModule,
     RouterModule.forRoot([
       { path: 'admin', component: AdminComponent, pathMatch: 'full' },
       { path: 'login', component: LoginComponent, pathMatch: 'full' },
