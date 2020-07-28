@@ -13,11 +13,6 @@
   padding: 20px 30px;
 }
 
-.login-page{
-  background: url(assets/imgs/loginbg.jpg) no-repeat center;
-  background-size: cover;
-  height: 100%;
-}
 .login-card{
   align-self: center;
   width: 25%;

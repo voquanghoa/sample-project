@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Bkdn.Website.Controllers
 {
-    [Route("api/auths")]
+    [Route("api/auth")]
     public class AuthController: ControllerBase
     {
         
