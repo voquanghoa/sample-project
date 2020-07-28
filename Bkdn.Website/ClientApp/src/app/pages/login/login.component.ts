@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../services/auth.service';
+import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
+import {MessageService} from 'primeng';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   password = '';
 
   constructor(private authService: AuthService,
-              private router: Router) {
+              private router: Router,
+              private messageService: MessageService) {
   }
 
   ngOnInit(): void {
@@ -33,7 +35,11 @@ export class LoginComponent implements OnInit {
           this.authService.setToken(response.token);
           this.navigateToAdmin();
         },
-        error => console.error('Error: ' + error),
+        error => this.messageService.add({
+          severity: 'success',
+          summary: 'Đăng nhập thất bại',
+          detail: 'Via MessageService'
+        })
       );
   }
 }
